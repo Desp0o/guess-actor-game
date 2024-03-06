@@ -11,4 +11,6 @@
     border-radius: 50px;
 
     color: var(--white);
+
+    cursor: pointer;
 }
