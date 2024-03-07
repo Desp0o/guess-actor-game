@@ -13,10 +13,15 @@ import {
 import { app } from "./components/FirebaseConfig";
 import { useDispatch } from "react-redux";
 import { setAvatar, setUser } from "./store/userSlice";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "./hooks/UseUser";
+import { useEffect } from "react";
 
 const Login = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate()
+  const {user} = useUser()
+  
   const googleLogIn = async () => {
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
@@ -26,13 +31,19 @@ const Login = () => {
       const signIn = await signInWithPopup(auth, provider);
       dispatch(setUser(signIn.user.displayName));
       dispatch(setAvatar(signIn.user.photoURL));
-
+      navigate('/pages/home')
       return signIn;
     } catch (error) {
       console.error(error);
     }
   };
 
+  useEffect(()=>{
+    if(user){
+      navigate('/pages/home')
+    }
+  
+  },[])
 
   return (
     <div className="login">
