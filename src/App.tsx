@@ -3,6 +3,7 @@ import Login from "./Login"
 import OutletLayOut from "./components/OutletLayOut"
 import Home from "./pages/Home"
 import RequiredAuth from "./components/RequiredAuth"
+import PageNotFound from "./components/404/PageNotFound"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/pages/Home" element={<Home />} />
       </Route>
       
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
     </>
   )
