@@ -9,7 +9,23 @@ const Rating = () => {
     <div className="ratings">
         <ToBackComp path="/pages/home" />
 
+        <p className="rating_title">RATINGS</p>
+
         <div className='rating_board'>
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
+            <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
             <RatinUserComponent index={1} avatar={test} name="despo" score={78} />
         </div>
 
