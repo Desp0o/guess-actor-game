@@ -1,14 +1,8 @@
-import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
-
-interface RootState {
-  userStore: {
-    name: string;
-  };
-}
+import {useUser} from "../components/hooks/UseUser"
 
 const RequiredAuth = () => {
-  const user = useSelector((state: RootState) => state.userStore.name);
+  const {user} = useUser()
   return user ? <Outlet /> : <Navigate to="/" />;
 };
 

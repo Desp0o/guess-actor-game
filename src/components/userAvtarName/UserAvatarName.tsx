@@ -1,16 +1,17 @@
-import React from 'react'
 import "./UserAvatarName.css"
+import { useEffect } from "react"
+import {useUser} from "../hooks/UseUser"
 
-interface UserInfo {
-    name: string,
-    avatar: string,
-}
-
-const UserAvatarName:React.FC<UserInfo> = ({avatar, name}) => {
+const UserAvatarName = () => {
+const {user, avatar} = useUser()
+  useEffect(()=>{
+    console.log(user);
+    
+  },[user])
   return (
     <div className='user_avatar_name'>
         <img src={avatar} className='user_avatar' alt='user avatar' />
-        <p>{name}</p>
+        <p>{user}</p>
     </div>
   )
 }

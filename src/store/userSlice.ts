@@ -1,18 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const userFromStorage = localStorage.getItem('user') || sessionStorage.getItem('user')
 
 const userSlice = createSlice({
     name: 'loggedUser',
     initialState:{
-        name: userFromStorage || ''
+            name: '',
+            avatar: ''
     },
     reducers:{
         setUser(state, action){
             state.name = action.payload
+        },
+        setAvatar(state, action){
+            state.avatar = action.payload
         }
     }
 })
 
-export const {setUser} = userSlice.actions
+export const {setUser,setAvatar} = userSlice.actions
 export default userSlice.reducer
