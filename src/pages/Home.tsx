@@ -15,8 +15,8 @@ const Home = () => {
 
       <div className="home_page_btns">
         <Button title="NEW GAME" />
-        <Button title="HOW TO PLAY" path="/pages/GameRules"/>
-        <Button title="RATINGS" />
+        <Button title="HOW TO PLAY" path="/pages/GameRules" />
+        <Button title="RATINGS" path="/pages/Rating" />
         <Button title="LOG OUT" funName={handleLogut}/>
       </div>
 

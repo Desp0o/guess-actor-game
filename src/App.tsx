@@ -10,6 +10,7 @@ import { app } from "./components/FirebaseConfig"
 import { setAvatar, setUser } from "./store/userSlice"
 import { useDispatch } from "react-redux"
 import GameRules from "./pages/GameRules"
+import Rating from "./pages/Rating"
 
 function App() {
   const dispatch = useDispatch()
@@ -48,6 +49,7 @@ function App() {
       <Route element={<RequiredAuth />}>
         <Route path="/pages/Home" element={<Home />} />
         <Route path="/pages/GameRules" element={<GameRules />} />
+        <Route path="/pages/Rating" element={<Rating />} />
       </Route>
       
       <Route path="*" element={<PageNotFound />} />

@@ -31,6 +31,7 @@
   letter-spacing: 0.05em;
   text-align: center;
   width: 260px;
+  columns: var(--white);
 }
 
 
