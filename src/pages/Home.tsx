@@ -4,14 +4,16 @@ import Button from "../components/button/Button";
 import UserAvatarName from "../components/userAvtarName/UserAvatarName";
 import "./Home.css";
 import { app } from "../components/FirebaseConfig";
+import { useDispatch } from "react-redux";
+import { setUser } from "../store/userSlice";
 
 const Home = () => {
-
+const dispatch = useDispatch()
   const handleLogout = async () => {
     try {
       const auth = getAuth(app);
       await signOut(auth);
-     
+      dispatch(setUser(''))
     } catch (error) {
       console.error("Logout Error:", error);
     }
@@ -20,7 +22,7 @@ const Home = () => {
   return (
     <div className="home_page">
       <div className="user_avatar_info">
-        <UserAvatarName name="Despo" avatar="" />
+        <UserAvatarName />
       </div>
 
       <div className="home_page_btns" onClick={handleLogout}>

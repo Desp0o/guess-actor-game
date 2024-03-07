@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { UseUser } from "./hooks/UseUser";
+import {useUser} from "../components/hooks/UseUser"
 
 const RequiredAuth = () => {
-  const user = UseUser()
+  const {user} = useUser()
   return user ? <Outlet /> : <Navigate to="/" />;
 };
 

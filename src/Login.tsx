@@ -14,7 +14,7 @@ import {
 } from "firebase/auth";
 import { app } from "./components/FirebaseConfig";
 import { useDispatch } from "react-redux";
-import { setUser } from "./store/userSlice";
+import { setAvatar, setUser } from "./store/userSlice";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -32,6 +32,8 @@ const Login = () => {
       const signIn = await signInWithPopup(auth, provider);
       console.log(signIn);
       dispatch(setUser(signIn.user.displayName));
+      dispatch(setAvatar(signIn.user.photoURL));
+
       return signIn;
     } catch (error) {
       console.error(error);
@@ -44,7 +46,11 @@ const Login = () => {
     const auth = getAuth(app);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
+        console.log(user);
+        
+        console.log(user);
         dispatch(setUser(user.displayName));
+        dispatch(setAvatar(user.photoURL));
         setLoading(false);
         navigate("/pages/home");
       }else {
