@@ -10,6 +10,8 @@ export const useLogOut = () => {
       const auth = getAuth(app);
       await signOut(auth);
       dispatch(setUser(''))
+      localStorage.removeItem('username')
+      sessionStorage.removeItem('username')
     } catch (error) {
       console.error("Logout Error:", error);
     }
