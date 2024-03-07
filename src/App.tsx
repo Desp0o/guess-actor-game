@@ -57,11 +57,3 @@ function App() {
 }
 
 export default App
-function dispatch(arg0: any) {
-  throw new Error("Function not implemented.")
-}
-
-function setLoading(arg0: boolean) {
-  throw new Error("Function not implemented.")
-}
-

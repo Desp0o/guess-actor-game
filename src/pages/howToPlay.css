@@ -1,0 +1,17 @@
+.how_to_play_title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: var(--border);
+}
+
+.how_to_play_rules {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 13px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  width: 260px;
+}
