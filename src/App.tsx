@@ -11,6 +11,7 @@ import { setAvatar, setUser } from "./store/userSlice"
 import { useDispatch } from "react-redux"
 import GameRules from "./pages/GameRules"
 import Rating from "./pages/Rating"
+import Game from "./pages/Game"
 
 function App() {
   const dispatch = useDispatch()
@@ -50,6 +51,7 @@ function App() {
         <Route path="/pages/Home" element={<Home />} />
         <Route path="/pages/GameRules" element={<GameRules />} />
         <Route path="/pages/Rating" element={<Rating />} />
+        <Route path="/pages/Game" element={<Game />} />
       </Route>
       
       <Route path="*" element={<PageNotFound />} />
