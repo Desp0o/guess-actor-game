@@ -44,6 +44,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  width: fit-content;
 }
 
 .login {

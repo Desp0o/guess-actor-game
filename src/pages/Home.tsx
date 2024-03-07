@@ -15,7 +15,7 @@ const Home = () => {
 
       <div className="home_page_btns">
         <Button title="NEW GAME" />
-        <Button title="HOW TO PLAY" />
+        <Button title="HOW TO PLAY" path="/pages/GameRules"/>
         <Button title="RATINGS" />
         <Button title="LOG OUT" funName={handleLogut}/>
       </div>
@@ -25,6 +25,6 @@ const Home = () => {
       </div>
     </div>
   );
-};
+};  
 
 export default Home;

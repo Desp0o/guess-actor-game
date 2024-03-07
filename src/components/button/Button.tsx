@@ -1,18 +1,21 @@
-import React from "react"
-import "./Button.css"
+import React from "react";
+import "./Button.css";
+import { Link } from "react-router-dom";
 
-interface ButtonProps{
-    title: string;
-    path?: string;
-    funName?: ()=>void
+interface ButtonProps {
+  title: string;
+  path?: string;
+  funName?: () => void;
 }
 
-const Button:React.FC<ButtonProps> = ({title, funName}) => {
+const Button: React.FC<ButtonProps> = ({ title, funName, path }) => {
   return (
-    <div className="button" onClick={funName}>
+    <Link to={path ? path : ''}>
+      <div className="button" onClick={funName}>
         <p className="button_name">{title}</p>
-    </div>
-  )
-}
+      </div>
+    </Link>
+  );
+};
 
-export default Button
+export default Button;

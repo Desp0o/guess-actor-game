@@ -4,12 +4,12 @@ import OutletLayOut from "./components/OutletLayOut"
 import Home from "./pages/Home"
 import RequiredAuth from "./components/RequiredAuth"
 import PageNotFound from "./components/404/PageNotFound"
-import HowToPlay from "./pages/howToPlay"
 import { useLayoutEffect, useState } from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { app } from "./components/FirebaseConfig"
 import { setAvatar, setUser } from "./store/userSlice"
 import { useDispatch } from "react-redux"
+import GameRules from "./pages/GameRules"
 
 function App() {
   const dispatch = useDispatch()
@@ -47,7 +47,7 @@ function App() {
 
       <Route element={<RequiredAuth />}>
         <Route path="/pages/Home" element={<Home />} />
-        <Route path="/pages/howToPlay" element={<HowToPlay />} />
+        <Route path="/pages/GameRules" element={<GameRules />} />
       </Route>
       
       <Route path="*" element={<PageNotFound />} />

@@ -1,8 +1,13 @@
-import "./howToPlay.css";
+import Policy from "../components/Policy";
+import ToBackComp from "../components/toBack/ToBackComp";
+import "./GameRules.css";
 
-const HowToPlay = () => {
+const GameRules = () => {
   return (
     <div className="how_to_play">
+      <ToBackComp path="/pages/home" />
+
+      <div className="game_rules">
       <p className="how_to_play_title">HOW TO PLAY</p>
       <p className="how_to_play_rules">
         When it comes to Australia, for example, websites are not allowed to
@@ -11,8 +16,14 @@ const HowToPlay = () => {
         products. This is how a website can comply with consumer law in
         Australia.
       </p>
+
+      </div>
+
+      <div className="how_to_play_policy">
+        <Policy />
+      </div>
     </div>
   );
 };
 
-export default HowToPlay;
+export default GameRules;
