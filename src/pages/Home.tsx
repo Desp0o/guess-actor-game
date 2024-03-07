@@ -1,23 +1,11 @@
-import { getAuth, signOut } from "firebase/auth";
 import Policy from "../components/Policy";
 import Button from "../components/button/Button";
 import UserAvatarName from "../components/userAvtarName/UserAvatarName";
 import "./Home.css";
-import { app } from "../components/FirebaseConfig";
-import { useDispatch } from "react-redux";
-import { setUser } from "../store/userSlice";
+import { useLogOut } from "../hooks/useLogOut";
 
 const Home = () => {
-const dispatch = useDispatch()
-  const handleLogout = async () => {
-    try {
-      const auth = getAuth(app);
-      await signOut(auth);
-      dispatch(setUser(''))
-    } catch (error) {
-      console.error("Logout Error:", error);
-    }
-  };
+  const handleLogut = useLogOut()
 
   return (
     <div className="home_page">
@@ -25,11 +13,11 @@ const dispatch = useDispatch()
         <UserAvatarName />
       </div>
 
-      <div className="home_page_btns" onClick={handleLogout}>
+      <div className="home_page_btns">
         <Button title="NEW GAME" />
         <Button title="HOW TO PLAY" />
         <Button title="RATINGS" />
-        <Button title="LOG OUT" />
+        <Button title="LOG OUT" funName={handleLogut}/>
       </div>
 
       <div className="home_page_policy">
