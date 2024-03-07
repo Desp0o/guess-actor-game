@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const userFromStorage = localStorage.getItem('username') || sessionStorage.getItem('username')
 
 const userSlice = createSlice({
     name: 'loggedUser',
     initialState:{
-            name: '',
+            name: userFromStorage || '',
             avatar: ''
     },
     reducers:{

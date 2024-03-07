@@ -1,4 +1,3 @@
-import { useLayoutEffect, useState } from "react";
 import EmailSVG from "./components/SVG/EmailSVG";
 import FacebookSVG from "./components/SVG/FacebookSVG";
 import GoogleSVG from "./components/SVG/GoogleSVG";
@@ -8,20 +7,15 @@ import {
   GoogleAuthProvider,
   browserLocalPersistence,
   getAuth,
-  onAuthStateChanged,
   setPersistence,
   signInWithPopup,
 } from "firebase/auth";
 import { app } from "./components/FirebaseConfig";
 import { useDispatch } from "react-redux";
 import { setAvatar, setUser } from "./store/userSlice";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const [isLoading, setLoading] = useState(false);
 
   const googleLogIn = async () => {
     const auth = getAuth(app);
@@ -39,27 +33,6 @@ const Login = () => {
     }
   };
 
-  useLayoutEffect(() => {
-    setLoading(true)
-
-    const auth = getAuth(app);
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        dispatch(setUser(user.displayName));
-        dispatch(setAvatar(user.photoURL));
-        setLoading(false);
-        navigate("/pages/home");
-      }else {
-        setLoading(false);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [dispatch, navigate]);
-
-  if (isLoading) {
-    return <div className="">loading</div>;
-  }
 
   return (
     <div className="login">
