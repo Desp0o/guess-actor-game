@@ -1,0 +1,24 @@
+.user_comp_for_rating{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.avatar_name_rating{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating_avatar_img{
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+}
+
+.rating_score{
+    align-self: flex-end;
+    margin-left: auto;
+}

@@ -7,6 +7,16 @@
     flex-direction: column;
 }
 
+.rating_board{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.avatar_name_rating{
+    display: flex;
+}
+
 .rating_policy{
     margin: auto auto 0 auto;
 }
