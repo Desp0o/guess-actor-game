@@ -7,6 +7,7 @@ const PageNotFound = () => {
       <div className="img_404_backdrop">
         <img src={notfound} alt="not found" className="img_404" />
       </div>
+      
       <div>
         <p className="page_404_txt">404</p>
         <p className="page_404_txt">Page Not Found</p>
