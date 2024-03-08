@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux"
 import GameRules from "./pages/GameRules"
 import Rating from "./pages/Rating"
 import Game from "./pages/Game"
+import PrivacyPolicy from "./pages/PrivacyPolicy"
 
 function App() {
   const dispatch = useDispatch()
@@ -46,6 +47,7 @@ function App() {
     <Routes>
       <Route path="/" element={<OutletLayOut />} />
       <Route index element={<Login />} />
+      <Route path="/pages/PrivacyPolicy" element={<PrivacyPolicy />} />
 
       <Route element={<RequiredAuth />}>
         <Route path="/pages/Home" element={<Home />} />
