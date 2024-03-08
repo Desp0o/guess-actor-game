@@ -5,9 +5,7 @@ import EyeIcon from "./components/eyeIcon/EyeIcon";
 import LoginButtonComp from "./components/loginButtons/LoginButtonComp";
 import {
   GoogleAuthProvider,
-  browserLocalPersistence,
   getAuth,
-  setPersistence,
   signInWithPopup,
 } from "firebase/auth";
 import { app } from "./components/FirebaseConfig";
