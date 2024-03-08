@@ -3,41 +3,19 @@ import FacebookSVG from "./components/SVG/FacebookSVG";
 import GoogleSVG from "./components/SVG/GoogleSVG";
 import EyeIcon from "./components/eyeIcon/EyeIcon";
 import LoginButtonComp from "./components/loginButtons/LoginButtonComp";
-import {
-  GoogleAuthProvider,
-  getAuth,
-  signInWithPopup,
-} from "firebase/auth";
-import { app } from "./components/FirebaseConfig";
-import { useDispatch } from "react-redux";
-import { setAvatar, setUser } from "./store/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "./hooks/UseUser";
 import { useEffect } from "react";
+import { useGoogleLogIn } from "./hooks/useGoogleLogIn";
+import { useFacebookLogIn } from "./hooks/useFacebookLogIn";
 
 const Login = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate()
+  const googleLogIn = useGoogleLogIn()
+  const facebookLogIn = useFacebookLogIn()
   const {user} = useUser()
   
-  const googleLogIn = async () => {
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
-    provider.setCustomParameters({
-      prompt:"select_account"
-    })
-
-    try {
-      const signIn = await signInWithPopup(auth, provider);
-      dispatch(setUser(signIn.user.displayName));
-      dispatch(setAvatar(signIn.user.photoURL));
-      navigate('/pages/home')
-      return signIn;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
+  
   useEffect(()=>{
     if(user){
       navigate('/pages/home')
@@ -55,7 +33,11 @@ const Login = () => {
           text="Log in with Google"
           funName={googleLogIn}
         />
-        <LoginButtonComp icon={<FacebookSVG />} text="Log in with Facebook" />
+        <LoginButtonComp 
+          icon={<FacebookSVG />} 
+          text="Log in with Facebook" 
+          funName={facebookLogIn}
+        />
         <LoginButtonComp icon={<EmailSVG />} text="Log in with Email" />
       </div>
 
