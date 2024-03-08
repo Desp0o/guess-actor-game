@@ -25,9 +25,11 @@ const Login = () => {
   const googleLogIn = async () => {
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({
+      prompt:"select_account"
+    })
 
     try {
-      await setPersistence(auth, browserLocalPersistence);
       const signIn = await signInWithPopup(auth, provider);
       dispatch(setUser(signIn.user.displayName));
       dispatch(setAvatar(signIn.user.photoURL));
