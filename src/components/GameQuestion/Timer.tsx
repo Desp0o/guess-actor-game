@@ -1,13 +1,21 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./GameQuestion.css"
 
-export const Timer = () => {
+interface TimerProps{
+    timerTrigger: number
+}
 
+export const Timer:React.FC<TimerProps> = ({timerTrigger}) => {
+    
     const [seconds, setSeconds] = useState(30)
 
     useEffect(()=>{
+        setSeconds(30)
+    },[timerTrigger])
+
+    useEffect(()=>{
         const timer = setInterval(()=>{
-            setSeconds(seconds - 1)
+            setSeconds((prev: number) => prev - 1)
         },1000)
 
         if(seconds <= 0){
@@ -23,7 +31,7 @@ export const Timer = () => {
             <p>00 : {seconds < 10 ? `0${seconds}` : seconds }</p>
         </div>
         <div className='timer_bar'>
-            <div className='timer_progress'/>
+            <div className='timer_progress' />
         </div>
     </div>
   )

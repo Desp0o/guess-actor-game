@@ -11,7 +11,8 @@ import { useEffect, useState } from "react"
 const GameQuestion = () => {
 
   const [correctAnswer, setCorrectAnswer] = useState('')
-  const [answIndex, setAnswIndex] = useState(1)
+  const [answIndex, setAnswIndex] = useState(0)
+
 
   useEffect(()=>{
     setCorrectAnswer(questionDataBase[answIndex].correctAnswer)
@@ -22,7 +23,13 @@ const GameQuestion = () => {
 
     if(e.target.textContent === correctAnswer){
       console.log('correct');
-      setAnswIndex( prev => prev + 1)
+      
+      if(answIndex === questionDataBase.length -1){
+        return console.log('you win');
+        
+      }
+      
+      setAnswIndex(prev => prev + 1)
     }else{
       console.log('incorrect');
       
@@ -32,7 +39,7 @@ const GameQuestion = () => {
 
   return (
     <div className='question_card'>
-        <GameQuestionNumber currentNum={answIndex} length={questionDataBase.length}/>
+        <GameQuestionNumber currentNum={answIndex + 1} length={questionDataBase.length}/>
        
        <div className='q_image_container'>
             <QuestuinImage image={cover} />
@@ -50,7 +57,7 @@ const GameQuestion = () => {
         </div>
 
         <div className='timer_container'>
-            <Timer />
+            <Timer timerTrigger={answIndex}/>
         </div>
     </div>
   )
