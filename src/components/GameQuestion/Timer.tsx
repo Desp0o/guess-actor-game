@@ -8,12 +8,19 @@ interface TimerProps{
 export const Timer:React.FC<TimerProps> = ({timerTrigger}) => {
     
     const [seconds, setSeconds] = useState(30)
+    const [anim, setAnim] = useState(true)
 
     useEffect(()=>{
         setSeconds(30)
+        setAnim(!anim)
     },[timerTrigger])
 
     useEffect(()=>{
+        console.log(anim);
+        
+    },[anim])
+
+    useEffect(()=>{    
         const timer = setInterval(()=>{
             setSeconds((prev: number) => prev - 1)
         },1000)
@@ -31,7 +38,7 @@ export const Timer:React.FC<TimerProps> = ({timerTrigger}) => {
             <p>00 : {seconds < 10 ? `0${seconds}` : seconds }</p>
         </div>
         <div className='timer_bar'>
-            <div className='timer_progress' />
+            <div className={anim ? 'timer_progress' : 'timer_progress1'}/>
         </div>
     </div>
   )
