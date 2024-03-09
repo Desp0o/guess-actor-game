@@ -1,12 +1,20 @@
-// import React from 'react'
-import "./GameQuestion.css"
+import "./GameQuestion.css";
 
-const AnswerComponent = () => {
-  return (
-    <div className='AnswerComponent'>
-        <p>AnswerCom ponent</p>
-    </div>
-  )
+interface AnswerComponentProps {
+  answer: string;
+  funName: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export default AnswerComponent
+const AnswerComponent: React.FC<AnswerComponentProps> = ({answer, funName}) => {
+
+  return (
+    <div
+      className='AnswerComponent'
+      onClick={funName}
+    >
+      <p>{answer}</p>
+    </div>
+  );
+};
+
+export default AnswerComponent;
