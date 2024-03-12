@@ -1,12 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const userFromStorage = localStorage.getItem('username') || sessionStorage.getItem('username')
+const avatarFromStorage = localStorage.getItem("userAvatar") || sessionStorage.getItem("userAvatar")
+console.log(avatarFromStorage);
+
 
 const userSlice = createSlice({
     name: 'loggedUser',
     initialState:{
             name: userFromStorage || '',
-            avatar: ''
+            avatar: '' || avatarFromStorage
     },
     reducers:{
         setUser(state, action){

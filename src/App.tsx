@@ -29,7 +29,10 @@ function App() {
         localStorage.setItem('username', JSON.stringify(user.displayName))
         sessionStorage.setItem('username', JSON.stringify(user.displayName))
         dispatch(setAvatar(user.photoURL));
-        setLoading(false);
+        const userPhotoURL = user.photoURL || ""
+        localStorage.setItem("userAvatar", userPhotoURL)
+        sessionStorage.setItem("userAvatar", userPhotoURL)
+        setLoading(false);        
       }else {
         setLoading(false);
       }

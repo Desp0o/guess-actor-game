@@ -20,6 +20,8 @@ export const useGoogleLogIn = () => {
           dispatch(setUser(signIn.user.displayName));
           dispatch(setAvatar(signIn.user.photoURL));
           navigate('/pages/home')
+          console.log(signIn);
+      
           return signIn;
         } catch (error) {
           console.error(error);
