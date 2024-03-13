@@ -19,7 +19,7 @@ export const useGoogleLogIn = () => {
           const signIn = await signInWithPopup(auth, provider);
           dispatch(setUser(signIn.user.displayName));
           dispatch(setAvatar(signIn.user.photoURL));
-          navigate('/pages/home')
+          navigate('/')
       
           return signIn;
         } catch (error) {

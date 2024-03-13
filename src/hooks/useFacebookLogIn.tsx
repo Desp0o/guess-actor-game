@@ -19,7 +19,7 @@ export const useFacebookLogIn = () => {
       const signIn = await signInWithPopup(auth, facebookProvider);
       dispatch(setUser(signIn.user.displayName));
       dispatch(setAvatar(signIn.user.photoURL));
-      navigate("/pages/home");
+      navigate("/");
       return signIn;
     } catch (error) {
       console.error(error);

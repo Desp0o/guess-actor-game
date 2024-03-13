@@ -3,9 +3,11 @@ import Button from "../components/button/Button";
 import UserAvatarName from "../components/userAvtarName/UserAvatarName";
 import "./Home.css";
 import { useLogOut } from "../hooks/useLogOut";
+import { useUser } from "../hooks/UseUser";
 
 const Home = () => {
   const handleLogut = useLogOut()
+  const {user} = useUser()
 
   return (
     <div className="home_page">
@@ -17,7 +19,13 @@ const Home = () => {
         <Button title="NEW GAME" path="/pages/Game"/>
         <Button title="HOW TO PLAY" path="/pages/GameRules" />
         <Button title="RATINGS" path="/pages/Rating" />
-        <Button title="LOG OUT" funName={handleLogut}/>
+        {user 
+            ? 
+              <Button title="LOG OUT" funName={handleLogut}/> 
+            : 
+              <Button title="LOG IN" path="/Login" />}
+        
+        
       </div>
 
       <div className="home_page_policy">
