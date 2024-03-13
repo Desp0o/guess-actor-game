@@ -7,7 +7,7 @@ import test from "../assets/images/test.png"
 const Rating = () => {
   return (
     <div className="ratings">
-        <ToBackComp path="/pages/home" />
+        <ToBackComp path="/" />
 
         <p className="rating_title">RATINGS</p>
 

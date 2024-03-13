@@ -1,8 +1,6 @@
 import { Route, Routes, useNavigate } from "react-router-dom"
 import Login from "./Login"
-import OutletLayOut from "./components/OutletLayOut"
 import Home from "./pages/Home"
-import RequiredAuth from "./components/RequiredAuth"
 import PageNotFound from "./components/404/PageNotFound"
 import { useLayoutEffect, useState } from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
@@ -48,16 +46,12 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" element={<OutletLayOut />} />
-      <Route index element={<Login />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/Login" element={<Login />} />
       <Route path="/pages/PrivacyPolicy" element={<PrivacyPolicy />} />
-
-      <Route element={<RequiredAuth />}>
-        <Route path="/pages/Home" element={<Home />} />
-        <Route path="/pages/GameRules" element={<GameRules />} />
-        <Route path="/pages/Rating" element={<Rating />} />
-        <Route path="/pages/Game" element={<Game />} />
-      </Route>
+      <Route path="/pages/GameRules" element={<GameRules />} />
+      <Route path="/pages/Rating" element={<Rating />} />
+      <Route path="/pages/Game" element={<Game />} />
       
       <Route path="*" element={<PageNotFound />} />
     </Routes>

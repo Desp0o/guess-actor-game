@@ -5,7 +5,7 @@ import "./GameRules.css";
 const GameRules = () => {
   return (
     <div className="how_to_play">
-      <ToBackComp path="/pages/home" />
+      <ToBackComp path="/" />
 
       <div className="game_rules">
       <p className="how_to_play_title">HOW TO PLAY</p>
