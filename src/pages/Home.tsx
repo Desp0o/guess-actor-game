@@ -19,13 +19,13 @@ const Home = () => {
         <Button title="NEW GAME" path="/pages/Game"/>
         <Button title="HOW TO PLAY" path="/pages/GameRules" />
         <Button title="RATINGS" path="/pages/Rating" />
-        {user 
+        {
+          user 
             ? 
               <Button title="LOG OUT" funName={handleLogut}/> 
             : 
-              <Button title="LOG IN" path="/Login" />}
-        
-        
+              <Button title="LOG IN" path="/Login" />
+        }
       </div>
 
       <div className="home_page_policy">
