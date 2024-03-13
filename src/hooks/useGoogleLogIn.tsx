@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, getAuth, signInWithPopup, signInWithRedirect } from 'firebase/auth';
 import { app } from '../components/FirebaseConfig';
 import { setAvatar, setUser } from '../store/userSlice';
 import { useDispatch } from 'react-redux';
@@ -16,11 +16,10 @@ export const useGoogleLogIn = () => {
         })
     
         try {
-          const signIn = await signInWithPopup(auth, provider);
+          const signIn = await signInWithRedirect(auth, provider);
           dispatch(setUser(signIn.user.displayName));
           dispatch(setAvatar(signIn.user.photoURL));
           navigate('/pages/home')
-          console.log(signIn);
       
           return signIn;
         } catch (error) {
