@@ -11,6 +11,7 @@ import GameRules from "./pages/GameRules"
 import Rating from "./pages/Rating"
 import Game from "./pages/Game"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
+import ScreenLoadingComp from "./components/screenLoadingComp/ScreenLoadingComp"
 
 function App() {
   const dispatch = useDispatch()
@@ -40,7 +41,7 @@ function App() {
   }, [dispatch, navigate]);
 
   if (isLoading) {
-    return <div className="">loading</div>;
+    return <ScreenLoadingComp />
   }
 
   return (
