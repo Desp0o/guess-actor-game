@@ -24,7 +24,7 @@ const Home = () => {
             ? 
               <Button title="LOG OUT" funName={handleLogut}/> 
             : 
-              <Button title="LOG IN" path="/Login" />
+              <Button title="LOG IN" path="/pages/Login" />
         }
       </div>
 
