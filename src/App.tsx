@@ -1,5 +1,5 @@
 import { Route, Routes, useNavigate } from "react-router-dom"
-import Login from "./Login"
+import Login from "./pages/Login"
 import Home from "./pages/Home"
 import PageNotFound from "./components/404/PageNotFound"
 import { useLayoutEffect, useState } from "react"
@@ -47,7 +47,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/Login" element={<Login />} />
+      <Route path="/pages/Login" element={<Login />} />
       <Route path="/pages/PrivacyPolicy" element={<PrivacyPolicy />} />
       <Route path="/pages/GameRules" element={<GameRules />} />
       <Route path="/pages/Rating" element={<Rating />} />

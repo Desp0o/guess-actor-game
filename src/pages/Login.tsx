@@ -1,13 +1,13 @@
-import EmailSVG from "./components/SVG/EmailSVG";
-import FacebookSVG from "./components/SVG/FacebookSVG";
-import GoogleSVG from "./components/SVG/GoogleSVG";
-import EyeIcon from "./components/eyeIcon/EyeIcon";
-import LoginButtonComp from "./components/loginButtons/LoginButtonComp";
+import EmailSVG from "../components/SVG/EmailSVG";
+import FacebookSVG from "../components/SVG/FacebookSVG";
+import GoogleSVG from "../components/SVG/GoogleSVG";
+import EyeIcon from "../components/eyeIcon/EyeIcon";
+import LoginButtonComp from "../components/loginButtons/LoginButtonComp";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "./hooks/UseUser";
+import { useUser } from "../hooks/UseUser";
 import { useEffect } from "react";
-import { useGoogleLogIn } from "./hooks/useGoogleLogIn";
-import { useFacebookLogIn } from "./hooks/useFacebookLogIn";
+import { useGoogleLogIn } from "../hooks/useGoogleLogIn";
+import { useFacebookLogIn } from "../hooks/useFacebookLogIn";
 
 const Login = () => {
   const navigate = useNavigate()
@@ -15,13 +15,12 @@ const Login = () => {
   const facebookLogIn = useFacebookLogIn()
   const {user} = useUser()
   
-  
   useEffect(()=>{
     if(user){
-      navigate('/pages/home')
+      return navigate('/')
     }
-  
-  },[])
+  },[user])
+
 
   return (
     <div className="login">
