@@ -7,10 +7,12 @@ import AnswerComponent from './AnswerComponent'
 import { Timer } from './Timer'
 import { questionDataBase } from "./DataBaseQuestion"
 import { useEffect, useState } from "react"
+import { Looser } from "../LoserComponent/Looser"
 
 const GameQuestion = () => {
 
   const [correctAnswer, setCorrectAnswer] = useState('')
+  const [isLooser, setIsLooser] = useState(false)
   const [answIndex, setAnswIndex] = useState(0)
 
 
@@ -20,6 +22,10 @@ const GameQuestion = () => {
  
   const selectAnswer = (e: any) =>{
     console.log(e.target.textContent);
+
+    if(e.target.textContent !== correctAnswer){
+      setIsLooser(true)
+    }
 
     if(e.target.textContent === correctAnswer){
       console.log('correct');
@@ -35,6 +41,10 @@ const GameQuestion = () => {
       
     }
     
+  }
+
+  if(isLooser){
+    return <Looser />
   }
 
   return (

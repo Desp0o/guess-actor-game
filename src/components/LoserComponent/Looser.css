@@ -1,0 +1,38 @@
+.Looser{
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--black);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 33px 25px 25px 25px;
+}
+
+.loser_p{
+    font-family: DM Sans;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--border);
+
+    margin-top: 78px;
+}
+
+.looser_btns{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    margin-top: 107px;
+}
