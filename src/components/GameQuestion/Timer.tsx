@@ -8,11 +8,11 @@ interface TimerProps{
 
 export const Timer:React.FC<TimerProps> = ({timerTrigger, noTime}) => {
     
-    const [seconds, setSeconds] = useState(30)
+    const [seconds, setSeconds] = useState(3000)
     const [anim, setAnim] = useState(true)
 
     useEffect(()=>{
-        setSeconds(30)
+        setSeconds(3000)
         setAnim(!anim)
     },[timerTrigger])
 

@@ -7,6 +7,7 @@ import { Timer } from './Timer'
 import { questionDataBase } from "./DataBaseQuestion"
 import { useEffect, useState } from "react"
 import { Looser } from "../LoserComponent/Looser"
+import FeedBack from "./FeedBack"
 
 const GameQuestion = () => {
 
@@ -14,6 +15,7 @@ const GameQuestion = () => {
   const [isLooser, setIsLooser] = useState(false)
   const [isTime, setTime] = useState(true)
   const [answIndex, setAnswIndex] = useState(0)
+  const [isFeedback, seTFeedback] = useState(false)
 
 
   useEffect(()=>{
@@ -34,11 +36,12 @@ const GameQuestion = () => {
         return console.log('you win');
         
       }
+
+      seTFeedback(true)
       
-      setAnswIndex(prev => prev + 1)
+      // setAnswIndex(prev => prev + 1)
     }else{
       console.log('incorrect');
-      
     }
     
   }
@@ -65,16 +68,22 @@ const GameQuestion = () => {
             <QuestuinImage image={questionDataBase[answIndex].image} />
        </div>
 
-        <div className='answers'>
-          {
-            
-           questionDataBase[answIndex].answers.map((answer: string, index)=>{
-            
-            return <AnswerComponent key={index} answer={answer} funName={selectAnswer}/>
-           })
-          }
-            
-        </div>
+        {
+          isFeedback 
+            ?
+          <FeedBack image={questionDataBase[answIndex].correctImage}/>
+            :
+          <div className='answers'>
+            {
+              
+             questionDataBase[answIndex].answers.map((answer: string, index)=>{
+              
+              return <AnswerComponent key={index} answer={answer} funName={selectAnswer}/>
+             })
+            }
+              
+          </div>
+        }
 
         <div className='timer_container'>
             <Timer 

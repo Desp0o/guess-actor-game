@@ -151,3 +151,31 @@
   line-height: 31px;
   letter-spacing: 0em;
 }
+
+
+.feedback_comp{
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.feedback_thumbs{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 77px;
+  cursor: pointer;
+}
+
+.feedback_img{
+  width: 217px;
+  height: 217px;
+  border-radius: 8px;
+
+  object-fit: cover; 
+  object-position: center; 
+}
