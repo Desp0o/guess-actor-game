@@ -2,7 +2,6 @@
 import "./GameQuestion.css"
 import GameQuestionNumber from './GameQuestionNumber'
 import QuestuinImage from './QuestuinImage'
-import cover from "../../assets/icons/quest.png"
 import AnswerComponent from './AnswerComponent'
 import { Timer } from './Timer'
 import { questionDataBase } from "./DataBaseQuestion"
@@ -63,7 +62,7 @@ const GameQuestion = () => {
         <GameQuestionNumber currentNum={answIndex + 1} length={questionDataBase.length}/>
        
        <div className='q_image_container'>
-            <QuestuinImage image={cover} />
+            <QuestuinImage image={questionDataBase[answIndex].image} />
        </div>
 
         <div className='answers'>
