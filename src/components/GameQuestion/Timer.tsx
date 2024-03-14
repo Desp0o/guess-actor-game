@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import "./GameQuestion.css"
 
 interface TimerProps{
-    timerTrigger: number
+    timerTrigger: number;
+    noTime: () => void;
 }
 
-export const Timer:React.FC<TimerProps> = ({timerTrigger}) => {
+export const Timer:React.FC<TimerProps> = ({timerTrigger, noTime}) => {
     
     const [seconds, setSeconds] = useState(30)
     const [anim, setAnim] = useState(true)
@@ -17,7 +18,6 @@ export const Timer:React.FC<TimerProps> = ({timerTrigger}) => {
 
     useEffect(()=>{
         console.log(anim);
-        
     },[anim])
 
     useEffect(()=>{    
@@ -27,6 +27,11 @@ export const Timer:React.FC<TimerProps> = ({timerTrigger}) => {
 
         if(seconds <= 0){
             clearInterval(timer)
+        }
+
+        if(seconds === 0){
+            console.log('you lost game');
+            noTime()
         }
 
         return () => clearInterval(timer)

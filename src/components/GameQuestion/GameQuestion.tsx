@@ -13,6 +13,7 @@ const GameQuestion = () => {
 
   const [correctAnswer, setCorrectAnswer] = useState('')
   const [isLooser, setIsLooser] = useState(false)
+  const [isTime, setTime] = useState(true)
   const [answIndex, setAnswIndex] = useState(0)
 
 
@@ -45,10 +46,11 @@ const GameQuestion = () => {
 
   const TryAgain = () => {
     setIsLooser(false)
+    setTime(true)
     setAnswIndex(0)
   }
 
-  if(isLooser){
+  if(isLooser || !isTime){
     return <Looser
               currentQuestionNumber={answIndex + 1}
               totalQuestionLength={questionDataBase.length}
@@ -76,7 +78,10 @@ const GameQuestion = () => {
         </div>
 
         <div className='timer_container'>
-            <Timer timerTrigger={answIndex}/>
+            <Timer 
+              timerTrigger={answIndex}
+              noTime={()=>setTime(false)}
+            />
         </div>
     </div>
   )
