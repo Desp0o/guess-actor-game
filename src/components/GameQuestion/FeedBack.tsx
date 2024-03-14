@@ -4,8 +4,8 @@ import ThumbDawn from '../SVG/ThumbDawn';
 
 interface FeedBackProps {
     image: string;
-    funcLiked: MouseEventHandler<HTMLDivElement> | undefined;
-    funcDisliked: MouseEventHandler<HTMLDivElement> | undefined;
+    funcLiked: MouseEventHandler<HTMLDivElement>;
+    funcDisliked: MouseEventHandler<HTMLDivElement>;
 }
 
 const FeedBack:React.FC<FeedBackProps> = ({image, funcLiked, funcDisliked}) => {

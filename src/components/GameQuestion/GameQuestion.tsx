@@ -45,13 +45,11 @@ const GameQuestion = () => {
   }
 
   const likedQuestion = () => {
-    // alert('i liked image')
     seTFeedback(false)
     setAnswIndex(prev => prev + 1) //next question
   }
 
   const dislkedQuestion = () => {
-    // alert('i disliked image')
     seTFeedback(false)
     setAnswIndex(prev => prev + 1) //next question
   }
@@ -102,6 +100,7 @@ const GameQuestion = () => {
 
         <div className='timer_container'>
             <Timer 
+              isTimeVisible={!isFeedback}
               timerTrigger={answIndex}
               noTime={()=>setTime(false)}
             />
