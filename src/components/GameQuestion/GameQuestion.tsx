@@ -43,8 +43,17 @@ const GameQuestion = () => {
     
   }
 
+  const TryAgain = () => {
+    setIsLooser(false)
+    setAnswIndex(0)
+  }
+
   if(isLooser){
-    return <Looser />
+    return <Looser
+              currentQuestionNumber={answIndex + 1}
+              totalQuestionLength={questionDataBase.length}
+              funcName={()=>TryAgain()}
+            />
   }
 
   return (
