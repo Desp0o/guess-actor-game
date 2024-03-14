@@ -37,14 +37,25 @@ const GameQuestion = () => {
         
       }
 
-      seTFeedback(true)
-      
-      // setAnswIndex(prev => prev + 1)
+      seTFeedback(true) //if answer is correct open feedback modal
     }else{
       console.log('incorrect');
     }
     
   }
+
+  const likedQuestion = () => {
+    // alert('i liked image')
+    seTFeedback(false)
+    setAnswIndex(prev => prev + 1) //next question
+  }
+
+  const dislkedQuestion = () => {
+    // alert('i disliked image')
+    seTFeedback(false)
+    setAnswIndex(prev => prev + 1) //next question
+  }
+
 
   const TryAgain = () => {
     setIsLooser(false)
@@ -71,7 +82,11 @@ const GameQuestion = () => {
         {
           isFeedback 
             ?
-          <FeedBack image={questionDataBase[answIndex].correctImage}/>
+          <FeedBack 
+            image={questionDataBase[answIndex].correctImage}
+            funcDisliked={dislkedQuestion}
+            funcLiked={likedQuestion}
+          />
             :
           <div className='answers'>
             {
